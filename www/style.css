@@ -1,0 +1,52 @@
+body {margin:0;}
+
+
+/* canvas{
+	border: 1px solid black;
+} */
+.state > *{
+	height: 400px;
+}
+#nav{
+	bottom: 0px;
+	position: fixed;
+}
+.button{
+	border-radius: 0px !important;
+
+}
+.ui.menu.my{
+	background-color:#40444f;
+	border-radius:0px !important;
+}
+.headername{
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	color: white;
+	font-size: 24px;
+	font-family: monospace;
+
+}
+i{
+	color: white;
+}
+
+.circle {
+	border-radius: 50%;
+	width: 56px;
+	height: 56px;
+	border: none;
+	background: rgb(255,82,82);
+	right: 20px;
+	bottom: 60px;
+	position: fixed;
+	user-select: none;
+	text-align: center;
+	display: block;
+	line-height: 50px;
+
+
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	/* width and height can be anything, as long as they're equal */
+}

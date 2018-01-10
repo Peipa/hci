@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HCI</title>
+		<!-- lib -->
+		<script src="lib/angular.min.js"></script>
+		<script src="lib/p5.min.js" charset="utf-8"></script>
+		<script src="lib/jquery-3.2.1.min.js" charset="utf-8"></script>
+
+		<script src="Semantic-UI-CSS-master/semantic.js" charset="utf-8"></script>
+
+		<link rel="stylesheet" href="Semantic-UI-CSS-master/semantic.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<!-- <canvas id="canvas" width="400" height="400" style="border: 1px solid black; cursor: pointer;"></canvas> -->
+		<div id ="myCtrl" ng-app="myApp" ng-controller="myCtrl" >
+			<div class="ui  menu my">
+				<div class="ui container">
+					<div class="headername">
+						test
+					</div>
+					<div class="right menu">
+						<a class="ui item" ng-click="togglemenu()"><i class="big sidebar  icon"></i></a>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="ui right demo vertical inverted sidebar labeled icon menu">
+			  <a class="item">
+			    <i class="home icon"></i>
+			    Home
+			  </a>
+			  <a class="item">
+			    <i class="info icon"></i>
+			    Info
+			  </a>
+			  <a class="item">
+			    <i class="archive icon"></i>
+			    Impressum
+			  </a>
+			</div>
+
+			<div class="wrapper">
+				<a type="button" class="circle " name="button"> <i class="angle large up icon"></i>
+				</a>
+				<div class="ui basic modal dot">
+					<div class="ui icon header">
+					  <i class="archive icon"></i>
+					  Wollen sie den Punkt Löschen?
+					</div>
+					<div class="content">
+					  <p>x :{{selectetDot.x}} </p>
+						<p>y: {{selectetDot.y}}</p>
+						<p>{{selectetDot.date|date}}</p>
+					</div>
+					<div class="actions">
+					  <div class="ui red basic cancel inverted button">
+					    <i class="remove icon"></i>
+					    No
+					  </div>
+					  <div class="ui green ok inverted button" ng-click="removeDot()">
+					    <i class="checkmark icon"></i>
+					    Yes
+					  </div>
+					</div>
+				</div>
+
+				<div class="ui basic modal room">
+					<div class="ui icon header">
+					  <i class="archive icon"></i>
+					  Wollen sie den Raum Löschen?
+					</div>
+					<div class="content">
+					  <p>x :{{selectetRoom.x}} </p>
+						<p>y: {{selectetRoom.y}}</p>
+						<p>{{selectetRoom.date|date}}</p>
+					</div>
+					<div class="actions">
+					  <div class="ui red basic cancel inverted button">
+					    <i class="remove icon"></i>
+					    No
+					  </div>
+					  <div class="ui green ok inverted button" ng-click="removeRoom()">
+					    <i class="checkmark icon"></i>
+					    Yes
+					  </div>
+					</div>
+				</div>
+
+
+
+				<div class="state">
+					<div ng-show="state== -1" class="">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div  ng-show = "state == 0 || state ==2 || state == 4">
+						<div id="canvas"></div>
+					</div>
+					<div   ng-show = "state == 1" >
+						x : {{selectetRoom.x}} </br>
+						y : {{selectetRoom.y}}</br>
+						width : {{selectetRoom.width}}</br>
+						height : {{selectetRoom.height}}
+					</div>
+					<div   ng-show = "state == 3" >
+						<h1>test</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<div   ng-show = "state == 5" >
+						<h1>ENDE</h1>
+					</div>
+
+				</div>
+
+				<div id= "nav" class="ui two bottom buttons  " >
+					<div class="ui button" data-vivaldi-spatnav-clickable="1" ng-click="abort()" ng-if="state >-1">Zurück</div>
+					<div class="ui button" data-vivaldi-spatnav-clickable="1" ng-click= "next()" ng-if="state <5" >Weiter</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="class/myRect.js" charset="utf-8"></script>
+		<script src="class/myDot.js" charset="utf-8"></script>
+		<script src="index.js" charset="utf-8"></script>
+	</body>
+</html>
