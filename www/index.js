@@ -11,7 +11,7 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	}
 
 	$scope.abort = function () {
-		if($scope.state ==0){
+		if($scope.state ==-1){
 
 			alert("Abort the mission");
 		}else {
@@ -68,6 +68,10 @@ var currendot=0;
 var stateDot=true;
 
 function mouseReleased() {
+	if(!checkInCannvas()){
+		return;
+	}
+
 	if(state==2){
 		for (var i = 0; i < dots.length; i++) {
 
@@ -96,9 +100,16 @@ function mouseReleased() {
 			//var pos = getMousePos(canvas, eve);
 			endX = mouseX;
 			endY = mouseY;
-			drawSquare(); //update on mouse-up
-			console.log("relase");
-			currenRoom++;
+
+
+			if(Math.abs(startY-endY) > 30 && Math.abs(startX-endX) > 30){
+				drawSquare(); //update on mouse-up
+				currenRoom++;
+			}else {
+				alert("Der Raum ist zu Klein");
+				rooms[currenRoom]= null;
+			}
+
 		}
 
 	}
@@ -106,6 +117,9 @@ function mouseReleased() {
 }
 
 function mouseDragged() {
+	if(!checkInCannvas()){
+		return;
+	}
 	if(select !== 0){
 		diffx =startX -gridTransform(mouseX);
 		diffy =startY - gridTransform(mouseY);
@@ -127,6 +141,9 @@ var selectdot;
 var selectTime ;
 
 function mousePressed() {
+	if(!(checkInCannvas())){
+		return;
+	}
 	if(state ==0){
 		startX = endX =  gridTransform(mouseX);
 		startY = endY =  gridTransform(mouseY);
@@ -176,6 +193,13 @@ function gridTransform(wert) {
 	return Math.floor(wert/10)*10;
 }
 
+function checkInCannvas() {
+	if(mouseX > 0 && mouseX < height && mouseY > 0 && mouseY < height){
+		return true;
+	}
+	return false;
+}
+
 function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     return {
@@ -186,7 +210,7 @@ function getMousePos(canvas, evt) {
 
 
 function setup() {
-	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height());
+	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-$('.ui.menu.my').height()-30);
 	canvas.parent('canvas');
 
 
