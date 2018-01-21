@@ -212,7 +212,7 @@ function getMousePos(canvas, evt) {
 
 
 function setup() {
-	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-$('.ui.menu.my').height()-30);
+	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-40);
 	canvas.parent('canvas');
 
 	imgRouter = loadImage("img/ic_router_black_24px.svg")
