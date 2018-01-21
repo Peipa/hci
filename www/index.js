@@ -67,6 +67,8 @@ var currendot=0;
 
 var stateDot=true;
 
+var imgRouter;
+
 function mouseReleased() {
 	if(!checkInCannvas()){
 		return;
@@ -213,7 +215,7 @@ function setup() {
 	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-$('.ui.menu.my').height()-30);
 	canvas.parent('canvas');
 
-
+	imgRouter = loadImage("img/ic_router_black_24px.svg")
 	//rooms[0]= new myRect(50,50,120,12);
 
 
@@ -221,8 +223,6 @@ function setup() {
 function draw(){
 	//background(255);
 	clear();
-
-
 	for(var i =0; i<rooms.length;i++){
 		if(rooms[i]!=null){
 			rooms[i].display();
