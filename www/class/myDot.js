@@ -11,10 +11,10 @@ function myDot(x,y,id) {
 		this.value = 0;
 	}else  if (this.rand == 1){
 		this.color = color(255, 255, 0);
-		this.value = 50;
+		this.value = 0.5;
 	}else {
 		this.color = color(0, 255, 0);
-		this.value = 100;
+		this.value = 1;
 	}
 
 	this.clicked = function () {

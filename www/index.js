@@ -15,6 +15,10 @@ app.controller('myCtrl', function($scope,$rootScope) {
 		state =$scope.state;
 
 		console.log("State: "+state)
+
+		if (state == 4) {
+			calcHeatmap();
+		}
 	}
 
 	$scope.abort = function () {
@@ -82,6 +86,41 @@ var currendot=0;
 var stateDot=true;
 
 var imgRouter;
+
+function calcHeatmap(){
+
+	var dataPoints = [];
+
+	for (var i = 0; i < dots.length; i++) {
+		var dataPoint = {
+			x: dots[i].x,
+			y: dots[i].y,
+			value: dots[i].value
+		}
+
+		dataPoint.push(dataPoint);
+	}
+
+	var config = {
+	  container: document.getElementById('heatmapContainer'),
+	  radius: 10,
+	  maxOpacity: .5,
+	  minOpacity: 0,
+	  blur: .75,
+		gradient: { 0 : '#00f', 0.2 : '#00f', 0.2001: '#0ff', 0.4 : '#0ff', 0.4001: '#0f0', 0.6 : '#0f0', 0.6001: '#ff0', 0.8 : '#ff0', 0.8001: '#f00', 1 : '#f00' }
+
+	};
+
+	var heatmap = h337.create(config);
+
+	heatmap.setData({
+	  max: 5,
+	  data: dataPoints
+	});
+
+	console.log(heatmap.getDataURL());
+
+}
 
 function mouseReleased() {
 	if(!checkInCannvas()){
