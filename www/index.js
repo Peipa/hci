@@ -1,6 +1,11 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope,$rootScope) {
 
+	//init sidebar
+	$(".button-collapse").sideNav();
+	$('.modal').modal();
+
+
 	$scope.state = -1;
 
 	$scope.selectRoom;
@@ -8,6 +13,8 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	$scope.next = function () {
 		$scope.state++;
 		state =$scope.state;
+
+		console.log("State: "+state)
 	}
 
 	$scope.abort = function () {
@@ -21,17 +28,15 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	}
 
 	$scope.selectRoom = function (room) {
-		$('.ui.basic.modal.room')
-			.modal('show')
-		;
+		$('#delete-modal').modal('open');
+
 		$scope.selectetRoom=room;
 		console.log($scope.selectetRoom);
 	}
 	$scope.selectDot = function (dot) {
 		$scope.selectetDot=dot;
-		$('.ui.basic.modal.dot')
-			.modal('show')
-		;
+		$('#delete-modal').modal('open');
+
 		console.log($scope.selectetDot);
 	}
 	$scope.removeDot=function () {
@@ -44,11 +49,6 @@ app.controller('myCtrl', function($scope,$rootScope) {
 		console.log(rooms);
 	}
 
-	$scope.togglemenu= function () {
-		$('.ui.labeled.icon.sidebar')
-		  .sidebar('toggle')
-		;
-	}
 
 
 });

@@ -6,13 +6,15 @@ function myDot(x,y,id) {
 	this.r = 12;
 	this.date = new Date();
 
-
 	if(this.rand == 0){
 		this.color = color(255, 0, 0);
+		this.value = 0;
 	}else  if (this.rand == 1){
 		this.color = color(255, 255, 0);
+		this.value = 50;
 	}else {
 		this.color = color(0, 255, 0);
+		this.value = 100;
 	}
 
 	this.clicked = function () {

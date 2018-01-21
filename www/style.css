@@ -8,6 +8,7 @@ body {margin:0;}
 	height: 400px;
 }
 #nav{
+	width: 100%;
 	bottom: 0px;
 	position: fixed;
 }
@@ -49,4 +50,17 @@ i{
 
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 	/* width and height can be anything, as long as they're equal */
+}
+
+/* New CSS */
+
+.text-content{
+	padding: 15px;
+	margin-bottom: 75px;
+	height: auto;
+}
+
+
+.fixed-action-btn{
+	bottom: 60px;
 }
