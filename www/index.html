@@ -30,6 +30,8 @@
 			</div>
 		</nav>
 
+		<div class="nav-placeholder"></div>
+
 		<div id="delete-modal" class="modal">
 	    <div class="modal-content">
 	      <h5>Wollen Sie dieses Element Löschen?</h4>
@@ -82,7 +84,7 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 			</div>
-			<div  ng-show = "state == 0 || state ==2 || state == 4">
+			<div ng-show = "state == 0 || state ==2 || state == 4">
 				<div id="canvas"></div>
 
 				<div class="fixed-action-btn vertical click-to-toggle" ng-show = "state == 0 || state == 2">
@@ -94,7 +96,7 @@
 						<li><a class="btn-floating green" ng-click="switch(2)" ><i class="material-icons">gamepad</i></a></li>
 						<li><a class="btn-floating yellow darken-1" ng-click="switch(1)"><i class="material-icons">router</i></a></li>
 						<li><a class="btn-floating red" ng-click="switch(0)"><i class="material-icons">add</i></a></li>
-
+					</ul>
 					<ul ng-show = "state == 2">
 						<li><a class="btn-floating blue"><i class="material-icons">delete</i></a></li>
 						<li><a class="btn-floating red"><i class="material-icons">add</i></a></li>

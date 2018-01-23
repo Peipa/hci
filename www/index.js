@@ -28,6 +28,11 @@ app.controller('myCtrl', function($scope,$rootScope) {
 		}else {
 			$scope.state--;
 			state =$scope.state;
+
+			if (state == 3) {
+				console.log("triggert");
+				$(".heatmap-canvas").remove();
+			}
 		}
 	}
 
@@ -89,25 +94,31 @@ var imgRouter;
 
 function calcHeatmap(){
 
+	//var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-40);
+	var w = window.innerWidth;
+	var h = window.innerHeight-$('#nav').height()-46;
+
+	$("#canvas").css({"width":w, "height":h});
+
 	var dataPoints = [];
 
 	for (var i = 0; i < dots.length; i++) {
 		var dataPoint = {
 			x: dots[i].x,
 			y: dots[i].y,
-			value: dots[i].value
+			value: dots[i].value,
+			radius: 100
 		}
 
-		dataPoint.push(dataPoint);
+		dataPoints.push(dataPoint);
 	}
 
 	var config = {
-	  container: document.getElementById('heatmapContainer'),
+	  container: document.getElementById('canvas'),
 	  radius: 10,
 	  maxOpacity: .5,
 	  minOpacity: 0,
-	  blur: .75,
-		gradient: { 0 : '#00f', 0.2 : '#00f', 0.2001: '#0ff', 0.4 : '#0ff', 0.4001: '#0f0', 0.6 : '#0f0', 0.6001: '#ff0', 0.8 : '#ff0', 0.8001: '#f00', 1 : '#f00' }
+	  blur: .75
 
 	};
 
@@ -118,7 +129,7 @@ function calcHeatmap(){
 	  data: dataPoints
 	});
 
-	console.log(heatmap.getDataURL());
+	//console.log(heatmap.getDataURL());
 
 }
 
@@ -279,7 +290,7 @@ function getMousePos(canvas, evt) {
 
 var scope;
 function setup() {
-	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-40);
+	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-56);
 	canvas.parent('canvas');
 
 	imgRouter = loadImage("img/ic_router_black_24px.svg");
