@@ -19,14 +19,9 @@
 	<div id ="myCtrl" ng-app="myApp" ng-controller="myCtrl" >
 
 
-		<nav class=" teal darken-1">
+		<nav class=" teal">
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo center">HitzMap</a>
-				<ul class="right">
-			         <li>
-								 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-							 </li>
-				</ul>
 			</div>
 		</nav>
 
@@ -88,97 +83,268 @@
 		</div>
 
 		<div id = "heatmapContainer" class="state">
-			<div class="text-content" ng-show="state== -1" class="">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<div class="text-content flow-text center-align full-size valign-wrapper" ng-show="state== -2" class="">
+				<div style="width: 100%;">
+					<h4 class="title">Willkommen bei HitzMap</h4>
 
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</br>
+					<p>Hier können Sie in drei Schritten Ihre Wlan-Heatmap erstellen.</p>
+					</br>
 
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					<ul>
+						<li><span class="title">1.</span> Raumlayout erstellen</li>
+						<li><span class="title">2.</span> Wlan-Stärke messen</li>
+						<li><span class="title">3.</span> Heatmap anzeigen</li>
+					</ul>
+				</div>
+			</div>
+			<div class="text-content flow-text center-align" ng-show="state== -1" class="">
 
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<h4 class="title">Raumlayout erstellen</h4>
+				<br>
 
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+	        <div class="card-panel grey lighten-5 z-depth-1">
+	          <div class="valign-wrapper">
+	            <div class="col s2">
+								<i class="material-icons black-text">menu</i>
+	            </div>
+	            <div class="col s10 center-align">
+	              <span class="black-text">
+	               	Öffnet die Funktionsübersicht.
+	              </span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
 
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+	        <div class="card-panel grey lighten-5 z-depth-1">
+	          <div class="valign-wrapper">
+	            <div class="col s2">
+								<i class="material-icons black-text">delete</i>
+	            </div>
+	            <div class="col s10 center-align">
+	              <span class="black-text">
+	               	Entfernt die Räume vom Layout.
+	              </span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
 
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+	        <div class="card-panel grey lighten-5 z-depth-1">
+	          <div class="valign-wrapper">
+	            <div class="col s2">
+								<i class="material-icons black-text">gamepad</i>
+	            </div>
+	            <div class="col s10 center-align">
+	              <span class="black-text">
+	               	Verschiebt Räume im Layout.
+	              </span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+	        <div class="card-panel grey lighten-5 z-depth-1">
+	          <div class="valign-wrapper">
+	            <div class="col s2">
+								<i class="material-icons black-text">router</i>
+	            </div>
+	            <div class="col s10 center-align">
+	              <span class="black-text">
+	               	Platziert Router im Layout.
+	              </span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+	        <div class="card-panel grey lighten-5 z-depth-1">
+	          <div class="valign-wrapper">
+	            <div class="col s2">
+								<i class="material-icons black-text">add</i>
+	            </div>
+	            <div class="col s10 center-align">
+	              <span class="black-text">
+	               	Fügt Räume hinzu.
+	              </span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
 
 			</div>
 			<div ng-show = "state == 0 || state ==2 || state == 4">
 				<div id="canvas"></div>
 
 				<div class="fixed-action-btn vertical click-to-toggle" ng-show = "state == 0 || state == 2">
-					<a class="btn-floating btn-large red" ng-click= "removeLast()">
+
+					<a class="btn-floating btn-large teal accent-3 ng-click= "removeLast()"">
 						<i class="material-icons">menu</i>
 					</a>
 					<ul ng-show = "state == 0">
-						<li><a class="btn-floating blue" ng-click="switch(3)"><i class="material-icons">delete</i></a></li>
-						<li><a class="btn-floating green" ng-click="switch(2)" ><i class="material-icons">gamepad</i></a></li>
-						<li><a class="btn-floating yellow darken-1" ng-click="switch(1)"><i class="material-icons">router</i></a></li>
-						<li><a class="btn-floating red" ng-click="switch(0)"><i class="material-icons">add</i></a></li>
+						<li><a class="btn-floating teal accent-4" ng-click="switch(3)"><i class="material-icons">delete</i></a></li>
+						<li><a class="btn-floating teal accent-4" ng-click="switch(2)" ><i class="material-icons">gamepad</i></a></li>
+						<li><a class="btn-floating teal accent-4" ng-click="switch(1)"><i class="material-icons">router</i></a></li>
+						<li><a class="btn-floating teal accent-4" ng-click="switch(0)"><i class="material-icons">add</i></a></li>
 					</ul>
 					<ul ng-show = "state == 2">
-						<li><a class="btn-floating blue" ng-click="switch(1)"><i class="material-icons">delete</i></a></li>
-						<li><a class="btn-floating red" ng-click="switch(0)"><i class="material-icons">add</i></a></li>
+						<li><a class="btn-floating  teal accent-4" ng-click="switch(1)"><i class="material-icons">delete</i></a></li>
+						<li><a class="btn-floating  teal accent-4" ng-click="switch(0)"><i class="material-icons">add</i></a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="text-content"  ng-show = "state == 1" >
-				x : {{selectetRoom.x}} </br>
-				y : {{selectetRoom.y}}</br>
-				width : {{selectetRoom.width}}</br>
-				height : {{selectetRoom.height}}
+			<div class="text-content flow-text center-align"  ng-show = "state == 1" >
+
+				<h4 class="title">Messpunkte setzen</h4>
+				<br>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+					<div class="card-panel grey lighten-5 z-depth-1">
+						<div class="valign-wrapper">
+							<div class="col s2">
+								<i class="material-icons black-text">menu</i>
+							</div>
+							<div class="col s10 center-align">
+								<span class="black-text">
+									Öffnet die Funktionsübersicht.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+					<div class="card-panel grey lighten-5 z-depth-1">
+						<div class="valign-wrapper">
+							<div class="col s2">
+								<i class="material-icons black-text">delete</i>
+							</div>
+							<div class="col s10 center-align">
+								<span class="black-text">
+									Entfernet die Messpunkte.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+					<div class="card-panel grey lighten-5 z-depth-1">
+						<div class="valign-wrapper">
+							<div class="col s2">
+								<i class="material-icons black-text">add</i>
+							</div>
+							<div class="col s10 center-align">
+								<span class="black-text">
+									Fügt Messpunkte hinzu.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="text-content"  ng-show = "state == 3" >
-				<h1>test</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<div class="text-content flow-text center-align"  ng-show = "state == 3" >
+					<h4 class="title">Heatmap anzeigen</h4>
+
+					<p>
+						In der nächsten Ansicht sehen Sie die ausgewerteten Messpunkte, die in Form einer Heatmap angezeigt werden.
+					</p>
+
+					<table class="centered">
+						<thead>
+							<tr>
+									<th>Legende</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr class="green accent-4">
+								<td>Optimal</td>
+							</tr>
+							<tr class="yellow accent-2">
+								<td>Gut</td>
+							</tr>
+							<tr class="orange accent-4">
+								<td>Mittelmäßig</td>
+							</tr>
+							<tr class="red accent-4">
+								<td>Schlecht</td>
+							</tr>
+						</tbody>
+					</table>
 			</div>
-			<div  class="text-content" ng-show = "state == 5" >
-				<h1>ENDE</h1>
+			<div  class="text-content flow-text center-align" ng-show = "state == 5" >
+
+				<h4 class="title">Tipps</h4>
+				<br>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+					<div class="card-panel grey lighten-5 z-depth-1">
+						<div class="valign-wrapper">
+							<div class="col s10 center-align">
+								<span class="black-text">
+									Platzieren Sie den Router an eine bessere Position. Am besten wäre eine mittige Positionierung in Ihrer Wohnung.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+					<div class="card-panel grey lighten-5 z-depth-1">
+						<div class="valign-wrapper">
+							<div class="col s10 center-align">
+								<span class="black-text">
+									Platzieren Sie ggf. Repeater, welche das Wlan-Signal verstärken und es so in entlegene Bereiche der Wohnung bringen.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+					<div class="card-panel grey lighten-5 z-depth-1">
+						<div class="valign-wrapper">
+							<div class="col s10 center-align">
+								<span class="black-text">
+									Falls Ihre Router-Software dies zulässt, können Sie versuchen die Sendefrequenz zu verändern. Andere Wlan-Signale die auf derselben Frequenz wie Ihres senden, können die Verbindung beeinträchtigen.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col s12 m8 offset-m2 l6 offset-l3">
+					<div class="card-panel grey lighten-5 z-depth-1">
+						<div class="valign-wrapper">
+							<div class="col s10 center-align">
+								<span class="black-text">
+									Falls Ihr Router schon sehr alt ist, kommt eventuell auch ein Neukauf in Betracht. Moderne Geräte haben meist eine weitaus höhere Sendeleistung und somit eine höhere Reichweite. Auch ist die maximale Übertragungsgeschwindigkeit meist höher.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 
 		</div>
 
 		<div id="nav">
 			<div class="row center-align" >
-				<div class="waves-effect waves-light btn" data-vivaldi-spatnav-clickable="1" ng-click="abort()" ng-if="state >-1">Zurück</div>
-				<div class="waves-effect waves-light btn" data-vivaldi-spatnav-clickable="1" ng-click= "next()" ng-if="state <5" >Weiter</div>
+				<div class="waves-effect waves-light btn" data-vivaldi-spatnav-clickable="1" ng-click="abort()" ng-if="state >-2">Zurück</div>
+				<div class="waves-effect waves-light btn" data-vivaldi-spatnav-clickable="1" ng-click= "next()" ng-if="state <5 && state != -2" >Weiter</div>
+				<div class="waves-effect waves-light btn" data-vivaldi-spatnav-clickable="1" ng-click= "next()" ng-if="state == -2" >Starten</div>
+
 			</div>
 		</div>
-
-		<ul id="slide-out" class="side-nav">
-      <li><a href="#!">First Sidebar Link</a></li>
-      <li><a href="#!">Second Sidebar Link</a></li>
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="#!">First</a></li>
-                <li><a href="#!">Second</a></li>
-                <li><a href="#!">Third</a></li>
-                <li><a href="#!">Fourth</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="#!">First Sidebar Link</a></li>
-      <li><a href="#!">Second Sidebar Link</a></li>
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">First</a></li>
-        <li><a href="#!">Second</a></li>
-        <li><a href="#!">Third</a></li>
-        <li><a href="#!">Fourth</a></li>
-      </ul>
-    </ul>
-
 	</div>
 
 <script type="text/javascript" src="lib/heatmap.js-master/build/heatmap.min.js"></script>

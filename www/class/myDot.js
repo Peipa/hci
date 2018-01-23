@@ -5,7 +5,6 @@ function myDot(x,y,id) {
 	//this.rand = Math.floor(Math.random() * (3 -  0));
 	this.r = 12;
 	this.date = new Date();
-
 	this.dist =1000;
 	for (var i = 0; i < routers.length; i++) {
 		 var tmpd=dist(routers[i].x,routers[i].y,this.x,this.y);
@@ -16,13 +15,13 @@ function myDot(x,y,id) {
 	console.log(this.dist);
 
 	if(this.dist < 100){
-		this.color = color(0, 255, 0);
+		this.color = "#00c853";
 		this.value = 1;
 	}else  if (this.dist < 200){
 		this.color = color(255, 255, 0);
-		this.value = 0.5;
+		this.color = "#ffff00";
 	}else {
-		this.color = color(255, 0, 0);
+		this.color = "#d50000";
 		this.value = 0;
 	}
 

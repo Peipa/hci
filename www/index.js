@@ -4,9 +4,13 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	//init sidebar
 	$(".button-collapse").sideNav();
 	$('.modal').modal();
+	var w = window.innerWidth;
+	var h = window.innerHeight-$('#nav').height()-46;
+
+	$(".full-size").css({"width":w, "height":h});
 
 
-	$scope.state = -1;
+	$scope.state = -2;
 
 	$scope.selectRoom;
 
@@ -24,8 +28,8 @@ app.controller('myCtrl', function($scope,$rootScope) {
 
 	$scope.abort = function () {
 		subState=0;
-		if($scope.state ==-1){
 
+		if($scope.state ==-2){
 			alert("Abort the mission");
 		}else {
 			$scope.state--;
@@ -136,7 +140,7 @@ function calcHeatmap(){
 			x: dots[i].x,
 			y: dots[i].y,
 			value: dots[i].value,
-			radius: 100
+			radius: 150
 		}
 
 		dataPoints.push(dataPoint);
@@ -145,16 +149,30 @@ function calcHeatmap(){
 	var config = {
 	  container: document.getElementById('canvas'),
 	  radius: 10,
-	  maxOpacity: .5,
-	  minOpacity: 0,
-	  blur: .75
+	  maxOpacity: .6,
+	  minOpacity: .4,
+	  blur: .75,
+
+		gradient: {
+			'.0': '#d50000',
+			'.25': '#d50000',
+
+			'.26': '#ff6d00',
+			'.50': '#ff6d00',
+
+			'.51': '#ffff00',
+			'.75': '#ffff00',
+
+			'.76': '#00c853',
+			'1': '#00c853'
+		}
 
 	};
 
 	var heatmap = h337.create(config);
 
 	heatmap.setData({
-	  max: 5,
+	  max: 1,
 	  data: dataPoints
 	});
 
