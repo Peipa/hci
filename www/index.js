@@ -63,7 +63,8 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	$scope.removeDot=function () {
 		console.log(dots);
 		//dots.splice($scope.selectetDot.id,1);
-		dots[$scope.selectetDot.id] = null;
+		//dots[$scope.selectetDot.id] = null;
+		dots.splice($scope.selectetDot,1)
 	}
 	$scope.removeRoom=function () {
 		rooms[$scope.selectetRoom.id]=null;
@@ -193,7 +194,7 @@ function mouseReleased() {
 				if(selectdot != null){
 					var scope = angular.element(document.getElementById("myCtrl")).scope();
 					scope.$apply(function () {
-						scope.selectDot(selectdot);
+						scope.selectDot(i);
 					});
 					return;
 				}
@@ -365,13 +366,15 @@ function getMousePos(canvas, evt) {
         y: evt.clientY - rect.top
     };
 }
+var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAABJElEQVR4Ae3Tr8tTURzH8RfTWbSKoFgMY9gEm2DSoCC4JhoUsQ1Bu/DAA2JU8zQbDGNjYBfRP0DRJrMJE9nYBivy9YYbhrgbdo8/GOf1TqecD1zO9Y9k2QEXPfHOxI+iibceu6AhiUPu+iJ+01hXU01nfRSKfPbMPTeK7ntuLBT54IwarlsJYeicX533Sggr12ytJ3x1GXBCR7eo4zjgqm9Cz9Ya9p0EV7wRa712CZzyUENNR7wUZbOiKHvhsCTuCOG9W46CY277JISbEtnzyEHrmp56IPv7omy3BvJAHjhtZCm2bGGoXX39TNRsWjUxEgka2GgpEjS3UaTpPxkoVZ3yQI2B3X1Fiz/9ow1Fgvo2apuKmn3XompiYF7j4/S1ZFliPwF5yG5YJ4vtWgAAAABJRU5ErkJggg==";
 
 var scope;
 function setup() {
 	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-56);
 	canvas.parent('canvas');
 
-	imgRouter = loadImage("img/ic_router_black_24px.svg");
+	//imgRouter = loadImage("img/ic_router_black_24px.svg");
+	imgRouter= loadImage(img);
 	scope = angular.element(document.getElementById("myCtrl")).scope();
 
 	//rooms[0]= new myRect(50,50,120,12);

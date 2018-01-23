@@ -1,6 +1,6 @@
 function Router(x,y) {
-	this.width = imgRouter.width*2;
-	this.height = imgRouter.height*2;
+	this.width = imgRouter.width;
+	this.height = imgRouter.height;
 
 	this.x = x-this.width/2;
 	this.y= y-this.height/2;
