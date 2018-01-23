@@ -17,12 +17,18 @@ function myDot(x,y,id) {
 	if(this.dist < 100){
 		this.color = "#00c853";
 		this.value = 1;
-	}else  if (this.dist < 200){
-		this.color = color(255, 255, 0);
+	}
+	else  if (this.dist < 200){
 		this.color = "#ffff00";
-	}else {
+		this.value = 0.60;
+	}
+	else  if (this.dist < 300){
+		this.color = "#ff6d00";
+		this.value = 0.35;
+	}
+	else {
 		this.color = "#d50000";
-		this.value = 0;
+		this.value = 0.1;
 	}
 
 	this.clicked = function () {

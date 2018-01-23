@@ -147,6 +147,8 @@ function calcHeatmap(){
 		dataPoints.push(dataPoint);
 	}
 
+	console.log(dataPoints);
+
 	var config = {
 	  container: document.getElementById('canvas'),
 	  radius: 10,
@@ -161,8 +163,8 @@ function calcHeatmap(){
 			'.26': '#ff6d00',
 			'.50': '#ff6d00',
 
-			'.51': '#ffff00',
-			'.75': '#ffff00',
+			'.51': '#cddc39',
+			'.75': '#cddc39',
 
 			'.76': '#00c853',
 			'1': '#00c853'
@@ -174,6 +176,7 @@ function calcHeatmap(){
 
 	heatmap.setData({
 	  max: 1,
+		min: 0,
 	  data: dataPoints
 	});
 
