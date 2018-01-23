@@ -9,17 +9,18 @@ function Router(x,y) {
 
 
 	this.display = function () {
+		//rect(this.x,this.y,this.width,this.height);
 		image(imgRouter,this.x,this.y,this.width,this.height);
 
 	}
 	this.clicked = function () {
-		if(Math.abs(this.centerX - mouseX) < width/2 && Math.abs(this.centerY - mouseY) < height/2 ){
+		if(Math.abs(this.centerX - mouseX) < this.width/2 && Math.abs(this.centerY - this.height) < height/2 ){
 			return this;
 		}else {
 			return null;
 		}
 	}
-	
+
 	this.move= function (diffx,diffy) {
 		this.x -= diffx;
 		this.y -= diffy;

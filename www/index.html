@@ -88,7 +88,7 @@
 				<div id="canvas"></div>
 
 				<div class="fixed-action-btn vertical click-to-toggle" ng-show = "state == 0 || state == 2">
-					<a class="btn-floating btn-large red">
+					<a class="btn-floating btn-large red" ng-click= "removeLast()">
 						<i class="material-icons">menu</i>
 					</a>
 					<ul ng-show = "state == 0">

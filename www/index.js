@@ -54,7 +54,7 @@ app.controller('myCtrl', function($scope,$rootScope) {
 		$scope.router=router;
 		$('#delete-modal').modal('open');
 
-		console.log($scope.selectetDot);
+		console.log($scope.router);
 	}
 	$scope.removeDot=function () {
 		console.log(dots);
@@ -65,10 +65,38 @@ app.controller('myCtrl', function($scope,$rootScope) {
 		rooms[$scope.selectetRoom.id]=null;
 		console.log(rooms);
 	}
+	$scope.removeRouter=function() {
+		//routers[]
+	}
 
 	$scope.switch= function (index) {
 		console.log(index);
+		if(state ==0){
+			if(subState ==1){
+				routers.splice(routers.length-1,1);
+			}
+		}
+		if(state == 2){
+			if(subState==0){
+				dots.splice(dots.length-1,1);
+				currendot--;
+			}
+		}
 		subState = index;
+	}
+
+	$scope.removeLast=function () {
+		if(state ==0){
+			if(subState ==1){
+				routers.splice(routers.length-1,1);
+			}
+		}
+		if(state == 2){
+			if(subState==0){
+				dots.splice(dots.length-1,1);
+				currendot--;
+			}
+		}
 	}
 
 });
@@ -224,10 +252,10 @@ function mousePressed() {
 	if(!(checkInCannvas())){
 		return;
 	}
-	startX = endX =  gridTransform(mouseX);
-	startY = endY =  gridTransform(mouseY);
-	if(state ==0){
 
+	if(state ==0){
+		startX = endX =  gridTransform(mouseX);
+		startY = endY =  gridTransform(mouseY);
 		if(subState ===3){
 			for (var i = 0; i < routers.length; i++) {
 				selectRouter=routers[i].clicked();
@@ -235,8 +263,10 @@ function mousePressed() {
 					scope.$apply(function () {
 						scope.selectRouter(selectRouter);
 					});
+					return;
 				}
 			}
+			selectRouter=null;
 		}
 		for (var i = rooms.length; i >=0 ; i--) {
 			if(rooms[i] != null){

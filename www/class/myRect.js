@@ -12,7 +12,7 @@ function myRect(x,y,width,height,id) {
 	}
 
 	this.clicked = function () {
-		if(Math.abs(this.centerX - mouseX) < width/2 && Math.abs(this.centerY - mouseY) < height/2 ){
+		if(Math.abs(this.centerX - mouseX) < this.width/2 && Math.abs(this.centerY - mouseY) < this.height/2 ){
 			return this;
 		}else {
 			return null;
