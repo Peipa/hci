@@ -196,6 +196,15 @@ function mouseDragged() {
 		rooms[selectRoom.id].move(diffx,diffy);
 		startX  =  gridTransform(mouseX);
 		startY  =  gridTransform(mouseY);
+	}else{
+		if(subState==2){
+			diffx =startX -gridTransform(mouseX);
+			diffy =startY - gridTransform(mouseY);
+			moveall(diffx,diffy);
+			startX  =  gridTransform(mouseX);
+			startY  =  gridTransform(mouseY);
+
+		}
 	}
 	if (mouseIsDown !== 0) {
 			//var pos = getMousePos(canvas, eve);
@@ -215,9 +224,10 @@ function mousePressed() {
 	if(!(checkInCannvas())){
 		return;
 	}
+	startX = endX =  gridTransform(mouseX);
+	startY = endY =  gridTransform(mouseY);
 	if(state ==0){
-		startX = endX =  gridTransform(mouseX);
-		startY = endY =  gridTransform(mouseY);
+
 		if(subState ===3){
 			for (var i = 0; i < routers.length; i++) {
 				selectRouter=routers[i].clicked();
@@ -279,7 +289,24 @@ function checkInCannvas() {
 	}
 	return false;
 }
+function moveall(diffx,diffy) {
+	for (var i = 0; i < rooms.length; i++) {
+		if(rooms[i] != null){
+			rooms[i].move(diffx,diffy);
+		}
+	}
+	for (var i = 0; i < routers.length; i++) {
+		if(routers[i]!= null){
+			routers[i].move(diffx,diffy);
 
+		}
+	}
+	/*
+	for (var i = 0; i < dots.length; i++) {
+		dots[i].move(diffx,diffy);
+	}
+	*/
+}
 function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     return {

@@ -22,8 +22,8 @@ function myRect(x,y,width,height,id) {
 	this.move= function (diffx,diffy) {
 		this.x -= diffx;
 		this.y -= diffy;
-		this.centerX= this.x+ width/2;
-		this.centerY= this.y + height/2
+		this.centerX= this.x+ this.width/2;
+		this.centerY= this.y + this.height/2
 	}
 
 }

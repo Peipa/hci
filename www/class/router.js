@@ -19,4 +19,11 @@ function Router(x,y) {
 			return null;
 		}
 	}
+	
+	this.move= function (diffx,diffy) {
+		this.x -= diffx;
+		this.y -= diffy;
+		this.centerX= this.x+ this.width/2;
+		this.centerY= this.y + this.height/2
+	}
 }

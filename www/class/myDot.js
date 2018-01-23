@@ -36,4 +36,9 @@ function myDot(x,y,id) {
 
 	}
 
+	this.move = function (diffx,diffy) {
+		this.x -= diffx;
+		this.y -= diffy;
+	}
+
 }
