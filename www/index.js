@@ -11,6 +11,7 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	$scope.selectRoom;
 
 	$scope.next = function () {
+		subState=0;
 		$scope.state++;
 		state =$scope.state;
 
@@ -22,6 +23,7 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	}
 
 	$scope.abort = function () {
+		subState=0;
 		if($scope.state ==-1){
 
 			alert("Abort the mission");
@@ -88,8 +90,6 @@ var currenRouer= 0;
 
 var currendot=0;
 
-var stateDot=true;
-
 var imgRouter;
 
 function calcHeatmap(){
@@ -139,23 +139,23 @@ function mouseReleased() {
 	}
 
 	if(state==2){
-		for (var i = 0; i < dots.length; i++) {
+		if(subState === 1){
+			for (var i = 0; i < dots.length; i++) {
 
-			selectdot =(dots[i]!=null) ? dots[i].clicked():null;
-			if(selectdot != null){
-				var scope = angular.element(document.getElementById("myCtrl")).scope();
-				scope.$apply(function () {
-					scope.selectDot(selectdot);
-				});
-				stateDot= false;
-				return;
+				selectdot =(dots[i]!=null) ? dots[i].clicked():null;
+				if(selectdot != null){
+					var scope = angular.element(document.getElementById("myCtrl")).scope();
+					scope.$apply(function () {
+						scope.selectDot(selectdot);
+					});
+					return;
+				}
 			}
+
 		}
-		if(stateDot){
+		if(subState ===0){
 			dots[currendot]=(new myDot(mouseX,mouseY,currendot) );
 			currendot+=1;
-		}else {
-			stateDot = true;
 		}
 	}else{
 		if(subState === 1){
