@@ -39,6 +39,12 @@ app.controller('myCtrl', function($scope,$rootScope) {
 
 		console.log($scope.selectetDot);
 	}
+	$scope.selectRouter = function (router) {
+		$scope.router=router;
+		$('#delete-modal').modal('open');
+
+		console.log($scope.selectetDot);
+	}
 	$scope.removeDot=function () {
 		console.log(dots);
 		//dots.splice($scope.selectetDot.id,1);
@@ -49,19 +55,27 @@ app.controller('myCtrl', function($scope,$rootScope) {
 		console.log(rooms);
 	}
 
-
+	$scope.switch= function (index) {
+		console.log(index);
+		subState = index;
+	}
 
 });
 
 var state =-1;
+
+var subState=0;
 
 var  startX, endX, startY, endY;
 var mouseIsDown = 0;
 
 var  rooms =[];
 var  dots =[];
+var routers=[];
 
 var currenRoom= 0;
+
+var currenRouer= 0;
 
 var currendot=0;
 
@@ -94,6 +108,10 @@ function mouseReleased() {
 			stateDot = true;
 		}
 	}else{
+		if(subState === 1){
+			routers.push(new Router(mouseX,mouseY));
+			return;
+		}
 		if(select !== 0){
 			select=0;
 		}
@@ -108,7 +126,7 @@ function mouseReleased() {
 				drawSquare(); //update on mouse-up
 				currenRoom++;
 			}else {
-				alert("Der Raum ist zu Klein");
+				console.log("Der Raum ist zu Klein");
 				rooms[currenRoom]= null;
 			}
 
@@ -141,6 +159,7 @@ var select= 0;
 var selectRoom =null;
 var selectdot;
 var selectTime ;
+var selectRouter;
 
 function mousePressed() {
 	if(!(checkInCannvas())){
@@ -149,21 +168,27 @@ function mousePressed() {
 	if(state ==0){
 		startX = endX =  gridTransform(mouseX);
 		startY = endY =  gridTransform(mouseY);
+		if(subState ===3){
+			for (var i = 0; i < routers.length; i++) {
+				selectRouter=routers[i].clicked();
+				if(selectRouter){
+					scope.$apply(function () {
+						scope.selectRouter(selectRouter);
+					});
+				}
+			}
+		}
 		for (var i = rooms.length; i >=0 ; i--) {
 			if(rooms[i] != null){
-				if(selectRoom ===rooms[i].clicked() ){
-					if(Date.now()-selectTime< 200){
-						var scope = angular.element(document.getElementById("myCtrl")).scope();
-						scope.$apply(function () {
-							scope.selectRoom(selectRoom);
-						});
-					}
-				}
 				if(rooms[i].clicked()){
 					selectTime = new Date();
 					selectRoom =rooms[i].clicked();
 					select=1;
-
+					if(subState ===3){
+						scope.$apply(function () {
+							scope.selectRoom(selectRoom);
+						});
+					}
 					return;
 				}
 			}
@@ -180,15 +205,18 @@ function mousePressed() {
 
 }
 function drawSquare() {
-    // creating a square
-    var w = gridTransform(endX - startX);
-    var h =  gridTransform(endY - startY);
-    var offsetX = (w < 0) ? w : 0;
-    var offsetY = (h < 0) ? h : 0;
-    var width = Math.abs(w);
-    var height = Math.abs(h);
+	if(subState ===0){
+		// creating a square
+		var w = gridTransform(endX - startX);
+		var h =  gridTransform(endY - startY);
+		var offsetX = (w < 0) ? w : 0;
+		var offsetY = (h < 0) ? h : 0;
+		var width = Math.abs(w);
+		var height = Math.abs(h);
 
 		rooms[currenRoom]= new myRect(startX + offsetX, startY + offsetY, width, height,currenRoom);
+
+	}
 }
 
 function gridTransform(wert) {
@@ -210,12 +238,14 @@ function getMousePos(canvas, evt) {
     };
 }
 
-
+var scope;
 function setup() {
 	var canvas =createCanvas(window.innerWidth,window.innerHeight-$('#nav').height()-40);
 	canvas.parent('canvas');
 
-	imgRouter = loadImage("img/ic_router_black_24px.svg")
+	imgRouter = loadImage("img/ic_router_black_24px.svg");
+	scope = angular.element(document.getElementById("myCtrl")).scope();
+
 	//rooms[0]= new myRect(50,50,120,12);
 
 
@@ -235,6 +265,9 @@ function draw(){
 
 			}
 		}
+	}
+	for (var i = 0; i < routers.length; i++) {
+		routers[i].display();
 	}
 
 }

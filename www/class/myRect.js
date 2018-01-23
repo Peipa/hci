@@ -3,7 +3,7 @@ function myRect(x,y,width,height,id) {
 	this.x =x;
 	this.y= y;
 	this.centerX= x+ width/2;
-	this.centerY= y + height/2
+	this.centerY= y + height/2;
 	this.width = width;
 	this.height = height;
 
