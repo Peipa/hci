@@ -184,11 +184,13 @@ function calcHeatmap(){
 
 }
 
+var released = true;
+
 function mouseReleased() {
 	if(!checkInCannvas()){
 		return;
 	}
-
+	released=true;
 	if(state==2){
 		if(subState === 1){
 			for (var i = 0; i < dots.length; i++) {
@@ -199,7 +201,7 @@ function mouseReleased() {
 					scope.$apply(function () {
 						scope.selectDot(i);
 					});
-					return;
+					return false;
 				}
 			}
 
@@ -234,7 +236,7 @@ function mouseReleased() {
 		}
 
 	}
-
+	return false;
 }
 
 function mouseDragged() {
@@ -277,6 +279,10 @@ function mousePressed() {
 	if(!(checkInCannvas())){
 		return;
 	}
+	if(!released){
+		return;
+	}
+	released =false;
 
 	if(state ==0){
 		startX = endX =  gridTransform(mouseX);
