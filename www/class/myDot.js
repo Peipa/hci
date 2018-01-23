@@ -2,19 +2,28 @@ function myDot(x,y,id) {
 	this.x=x;
 	this.y=y;
 	this.id =id;
-	this.rand = Math.floor(Math.random() * (3 -  0));
+	//this.rand = Math.floor(Math.random() * (3 -  0));
 	this.r = 12;
 	this.date = new Date();
 
-	if(this.rand == 0){
-		this.color = color(255, 0, 0);
-		this.value = 0;
-	}else  if (this.rand == 1){
+	this.dist =1000;
+	for (var i = 0; i < routers.length; i++) {
+		 var tmpd=dist(routers[i].x,routers[i].y,this.x,this.y);
+		 if(tmpd<this.dist){
+			 this.dist=tmpd;
+		 }
+	}
+	console.log(this.dist);
+
+	if(this.dist < 100){
+		this.color = color(0, 255, 0);
+		this.value = 1;
+	}else  if (this.dist < 200){
 		this.color = color(255, 255, 0);
 		this.value = 0.5;
 	}else {
-		this.color = color(0, 255, 0);
-		this.value = 1;
+		this.color = color(255, 0, 0);
+		this.value = 0;
 	}
 
 	this.clicked = function () {

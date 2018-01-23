@@ -218,28 +218,30 @@ function mouseDragged() {
 	if(!checkInCannvas()){
 		return;
 	}
-	if(select !== 0){
-		diffx =startX -gridTransform(mouseX);
-		diffy =startY - gridTransform(mouseY);
-		rooms[selectRoom.id].move(diffx,diffy);
-		startX  =  gridTransform(mouseX);
-		startY  =  gridTransform(mouseY);
-	}else{
-		if(subState==2){
+	if(state ===0){
+		if(select !== 0){
 			diffx =startX -gridTransform(mouseX);
 			diffy =startY - gridTransform(mouseY);
-			moveall(diffx,diffy);
+			rooms[selectRoom.id].move(diffx,diffy);
 			startX  =  gridTransform(mouseX);
 			startY  =  gridTransform(mouseY);
+		}else{
+			if(subState==2){
+				diffx =startX -gridTransform(mouseX);
+				diffy =startY - gridTransform(mouseY);
+				moveall(diffx,diffy);
+				startX  =  gridTransform(mouseX);
+				startY  =  gridTransform(mouseY);
 
+			}
 		}
-	}
-	if (mouseIsDown !== 0) {
+		if (mouseIsDown !== 0) {
 			//var pos = getMousePos(canvas, eve);
 			endX = mouseX;
 			endY = mouseY;
 
 			drawSquare();
+		}
 	}
 }
 var select= 0;
@@ -295,7 +297,7 @@ function mousePressed() {
 
 }
 function drawSquare() {
-	if(subState ===0){
+	if(subState ===0 && state==0){
 		// creating a square
 		var w = gridTransform(endX - startX);
 		var h =  gridTransform(endY - startY);
