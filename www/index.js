@@ -39,20 +39,20 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	}
 
 	$scope.selectRoom = function (room) {
-		$('#delete-modal').modal('open');
+		$('#delete-modal-room').modal('open');
 
 		$scope.selectetRoom=room;
 		console.log($scope.selectetRoom);
 	}
 	$scope.selectDot = function (dot) {
 		$scope.selectetDot=dot;
-		$('#delete-modal').modal('open');
+		$('#delete-modal-dot').modal('open');
 
 		console.log($scope.selectetDot);
 	}
-	$scope.selectRouter = function (router) {
-		$scope.router=router;
-		$('#delete-modal').modal('open');
+	$scope.selectRouter = function (routerID) {
+		$scope.router=routerID;
+		$('#delete-modal-router').modal('open');
 
 		console.log($scope.router);
 	}
@@ -67,6 +67,7 @@ app.controller('myCtrl', function($scope,$rootScope) {
 	}
 	$scope.removeRouter=function() {
 		//routers[]
+		routers.splice($scope.router,1);
 	}
 
 	$scope.switch= function (index) {
@@ -263,7 +264,7 @@ function mousePressed() {
 				selectRouter=routers[i].clicked();
 				if(selectRouter){
 					scope.$apply(function () {
-						scope.selectRouter(selectRouter);
+						scope.selectRouter(i);
 					});
 					return;
 				}

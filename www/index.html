@@ -32,14 +32,36 @@
 
 		<div class="nav-placeholder"></div>
 
-		<div id="delete-modal" class="modal">
+		<div id="delete-modal-room" class="modal">
 	    <div class="modal-content">
-	      <h5>Wollen Sie dieses Element Löschen?</h4>
+	      <h5>Wollen Sie diesen Raum Löschen?</h4>
 
 	    </div>
 	    <div class="modal-footer">
 				<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Nein</a>
-	      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Ja</a>
+	      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="removeRoom()">Ja</a>
+	    </div>
+	  </div>
+
+		<div id="delete-modal-router" class="modal">
+	    <div class="modal-content">
+	      <h5>Wollen Sie diesen Router Löschen?</h4>
+
+	    </div>
+	    <div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Nein</a>
+	      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="removeRouter()">Ja</a>
+	    </div>
+	  </div>
+
+		<div id="delete-modal-dot" class="modal">
+	    <div class="modal-content">
+	      <h5>Wollen Sie diesen Punkt Löschen?</h4>
+
+	    </div>
+	    <div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Nein</a>
+	      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="removeDot()">Ja</a>
 	    </div>
 	  </div>
 
