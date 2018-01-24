@@ -33,7 +33,7 @@ function myDot(x,y,id) {
 
 	this.clicked = function () {
 		var d = dist(mouseX,mouseY,this.x,this.y);
-		if(d < this.r){
+		if(d < this.r*2){
 			return this;
 		}else {
 			return null;

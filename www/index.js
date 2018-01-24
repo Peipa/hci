@@ -135,16 +135,20 @@ function calcHeatmap(){
 	$("#canvas").css({"width":w, "height":h});
 
 	var dataPoints = [];
+	//alert(dots);
 
 	for (var i = 0; i < dots.length; i++) {
-		var dataPoint = {
-			x: dots[i].x,
-			y: dots[i].y,
-			value: dots[i].value,
-			radius: 150
-		}
+		if(dots[i] != null){
+			var dataPoint = {
+				x: dots[i].x,
+				y: dots[i].y,
+				value: dots[i].value,
+				radius: 150
+			}
 
-		dataPoints.push(dataPoint);
+			dataPoints.push(dataPoint);
+
+		}
 	}
 
 	console.log(dataPoints);
@@ -186,6 +190,8 @@ function calcHeatmap(){
 
 var released = true;
 
+var clicked = true;
+
 function mouseReleased() {
 	if(!checkInCannvas()){
 		return;
@@ -207,13 +213,30 @@ function mouseReleased() {
 
 		}
 		if(subState ===0){
-			dots[currendot]=(new myDot(mouseX,mouseY,currendot) );
-			currendot+=1;
+			if(clicked){
+				for (var i = 0; i < dots.length; i++) {
+
+					selectdot =(dots[i]!=null) ? dots[i].clicked():null;
+					if(selectdot != null){
+						console.log(selectdot);
+
+						return;
+					}
+				}
+				if(selectdot == null){
+					dots[currendot]=(new myDot(mouseX,mouseY,currendot) );
+					currendot+=1;
+					clicked = false;
+				}
+
+			}
+
+			//return false;
 		}
 	}else{
 		if(subState === 1){
 			routers.push(new Router(mouseX,mouseY));
-			return;
+			return false;
 		}
 		if(select !== 0){
 			select=0;
@@ -236,7 +259,6 @@ function mouseReleased() {
 		}
 
 	}
-	return false;
 }
 
 function mouseDragged() {
@@ -283,6 +305,7 @@ function mousePressed() {
 		return;
 	}
 	released =false;
+	clicked = true;
 
 	if(state ==0){
 		startX = endX =  gridTransform(mouseX);
@@ -294,7 +317,7 @@ function mousePressed() {
 					scope.$apply(function () {
 						scope.selectRouter(i);
 					});
-					return;
+					return false;
 				}
 			}
 			selectRouter=null;
@@ -310,7 +333,7 @@ function mousePressed() {
 							scope.selectRoom(selectRoom);
 						});
 					}
-					return;
+					return false;
 				}
 			}
 		}
